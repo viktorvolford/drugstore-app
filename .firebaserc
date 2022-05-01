@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "drugstore-app-1e0af": {
+      "hosting": {
+        "drugstore-app": [
+          "drugstore-app-1e0af"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "drugstore-app-1e0af"
+  }
+}
