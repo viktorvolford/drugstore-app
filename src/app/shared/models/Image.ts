@@ -1,5 +1,6 @@
 export interface Image{
     id: string,
-    name: string,
-    image_url: string
+    image_url: string,
+    product_id: string,
+    download_url : string
 }

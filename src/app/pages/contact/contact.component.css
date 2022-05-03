@@ -19,3 +19,7 @@ mat-card-header {
 .main_component {
     height: 100vh;
 }
+
+.warning{
+    color: red;
+}

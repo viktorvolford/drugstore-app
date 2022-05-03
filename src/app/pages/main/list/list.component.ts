@@ -13,8 +13,8 @@ import { ImageService } from '../../../shared/services/image.service';
 })
 export class ListComponent implements OnInit, OnDestroy {
 
-  products? : Array<Product>;
-  images? : Array<Image>;
+  products : Array<Product>= new Array<Product>();
+  images : Array<Image> = new Array<Image>();
 
   productsLoadingSubscription?: Subscription;
   imagesLoadingSubscription?: Subscription;
@@ -30,13 +30,21 @@ export class ListComponent implements OnInit, OnDestroy {
     });
     this.imagesLoadingSubscription = this.imageService.loadImageMeta().subscribe((data: Array<Image>) => {
       this.images = data;
-      console.log(this.images);
+      this.images.forEach(e => {
+        this.imageService.loadImage(e.image_url).subscribe(data => {
+          e.download_url = data;
+        });
+      });
     })
   }
 
   ngOnDestroy(): void {
       this.productsLoadingSubscription?.unsubscribe();
       this.imagesLoadingSubscription?.unsubscribe();
+  }
+
+  getImageDownloadLink(product : Product) : string | undefined {
+      return this.images.find(e => e.product_id === product.id)?.download_url;
   }
 
 }

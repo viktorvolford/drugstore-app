@@ -14,7 +14,7 @@ import { Subscription } from 'rxjs';
 })
 export class DetailsComponent implements OnInit, OnDestroy {
 
-  user?: firebase.default.User | null;
+  user?: firebase.default.User;
   products?: Array<Product>;
 
   product?: Product;

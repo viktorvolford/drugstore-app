@@ -9,23 +9,25 @@ export class UserService {
 
   collectionName = 'Users';
 
-  constructor(
-    private afs: AngularFirestore
-  ) { }
+  constructor(private afs: AngularFirestore) { }
 
-  create(user: User) : Promise<void> {
+  create(user: User) {
     return this.afs.collection<User>(this.collectionName).doc(user.id).set(user);
   }
 
-  getAll(){
-
+  getAll() {
+    return this.afs.collection<User>(this.collectionName).valueChanges();
   }
 
-  update(){
-
+  getById(id: string) {
+    return this.afs.collection<User>(this.collectionName).doc(id).valueChanges();
   }
 
-  delete(){
+  update(user: User) {
+    return this.afs.collection<User>(this.collectionName).doc(user.id).set(user);
+  }
 
+  delete(id: string) {
+    return this.afs.collection<User>(this.collectionName).doc(id).delete();
   }
 }

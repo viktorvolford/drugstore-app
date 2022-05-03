@@ -6,9 +6,7 @@
                 <th>Comment</th>
                 <th>Date</th>
             </tr>
-            <!-- <tr *ngFor="let comment of comments; let i = index;" [ngClass]="i % 2 === 0 ? 'table-header-even' : 'table-header-odd'"> -->
-            <tr *ngFor="let comment of comments; let i = index;"
-                [ngStyle]="{'background-color' : i % 2 === 0 ? 'darkcyan' : 'cyan'}">
+            <tr *ngFor="let comment of comments; let i = index;" [ngClass]="i % 2 === 0 ? 'table-header-even' : 'table-header-odd'">
                 <td>{{comment.username}}</td>
                 <td>{{comment.comment}}</td>
                 <td>{{comment.date | dateFormat}}</td>
@@ -17,12 +15,7 @@
     </div>
     
     <div class="break"></div>
-    <form [formGroup]="commentsForm" (ngSubmit)="addComment()">
-        <mat-form-field>
-            <mat-label for="username">Felhasználónév: </mat-label>
-            <input matInput type="text" formControlName="username" />
-        </mat-form-field>
-        <div class="break"></div>
+    <form *ngIf="user" [formGroup]="commentsForm" (ngSubmit)="addComment()">
         <mat-form-field>
             <mat-label for="comment">Komment: </mat-label>
             <textarea matInput rows="10" cols="50" formControlName="comment" placeholder="Írj egy kommentet!"></textarea>

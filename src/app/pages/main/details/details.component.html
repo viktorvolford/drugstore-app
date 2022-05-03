@@ -1,9 +1,11 @@
-<h2>A termék leírása</h2>
-
-<div *ngIf="product">
-  <h3>{{ product.name }}</h3>
-  <h4>{{ product.price | currency }}</h4>
-  <p>{{ product.description }}</p>
-  <button type="button" (click)="addToCart(product)">Ez kell nekem!</button>
-  <app-comment-section *ngIf="user" [current_product_id]="product.id"></app-comment-section>
+<div class="main_component">
+  <h2>A termék leírása</h2>
+  <div *ngIf="product">
+    <h3>{{ product.name }}</h3>
+    <h4>{{ product.price | currency:'HUF':'HUF ' }}</h4>
+    <p>{{ product.description }}</p>
+    <button type="button" (click)="addToCart(product)">Ez kell nekem!</button>
+    <app-comment-section></app-comment-section>
+  </div>
 </div>
+

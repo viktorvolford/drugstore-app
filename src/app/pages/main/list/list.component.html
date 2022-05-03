@@ -1,13 +1,13 @@
 <h2>Termékeink:</h2>
 
-<div *ngFor="let product of products">
-    <mat-card>
+<div *ngFor="let product of products; let i = index;">
+    <mat-card [ngStyle]="{'background-color' : i % 2 === 0 ? '#aee3fc' : '#579af7'}">
         <mat-card-header>
             <mat-card-title>
                 {{ product.name }}
             </mat-card-title>
         </mat-card-header>
-        <img mat-card-image [src]="">
+        <img mat-card-image [src]="getImageDownloadLink(product)">
         <mat-card-content>
             <p *ngIf="product.price">
                 Ár: {{ product.price | currency:'HUF':'HUF ' }}

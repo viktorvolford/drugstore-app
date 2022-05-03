@@ -24,3 +24,21 @@ mat-card-actions{
     display: grid;
     place-items: center;
 }
+
+table{
+    margin-top: 50px;
+}
+
+.table-header-even{
+    background-color: #aee3fc;
+    color: black;
+}
+
+.table-header-odd{
+    background-color: #3568b0;
+    color: white;
+}
+
+td{
+    padding: 5px;
+}
