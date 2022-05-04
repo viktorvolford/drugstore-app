@@ -42,3 +42,8 @@ table{
 td{
     padding: 5px;
 }
+
+.no_comment_warning{
+    text-align: center;
+    margin-top: 50px;
+}

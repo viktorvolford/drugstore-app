@@ -2,7 +2,7 @@ a {
     text-decoration: none;
     color: white
 }
-ng
+
 a:hover, a:active {
     color: lightgrey;
     font-size: 22px;
