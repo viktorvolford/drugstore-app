@@ -16,7 +16,8 @@ const routes: Routes = [
         path: 'contact', loadChildren: () => import('./pages/contact/contact.module').then(m => m.ContactModule) 
     },
     { 
-        path: 'main', loadChildren: () => import('./pages/main/main.module').then(m => m.MainModule)
+        path: 'main', loadChildren: () => import('./pages/main/main.module').then(m => m.MainModule),
+        canActivate: [AuthGuard]
     },
     { 
         path: 'cart', loadChildren: () => import('./pages/cart/cart.module').then(m => m.CartModule),
@@ -24,7 +25,7 @@ const routes: Routes = [
     },
     { 
         path: '',
-        redirectTo: '/main',
+        redirectTo: '/contact',
         pathMatch: 'full' 
     },
     { 

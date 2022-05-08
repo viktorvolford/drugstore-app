@@ -7,20 +7,27 @@ import { Product } from '../../shared/models/Product';
 })
 export class CartService {
 
-  items: Product[] = [];
-
   constructor() { }
 
   addToCart(product: Product) {
-    this.items.push(product);
+    if(this.getItems() === null || this.getItems() === undefined){
+      // let cartList = [];
+      // cartList.push(product);
+      // localStorage.setItem('cart', JSON.stringify(cartList));
+      localStorage.setItem('cart', JSON.stringify([product]));
+    }
+    else{
+      let cartList = this.getItems();
+      cartList.push(product);
+      localStorage.setItem('cart', JSON.stringify(cartList));
+    }
   }
 
   getItems() {
-    return this.items;
+    return JSON.parse(localStorage.getItem('cart') as string);
   }
 
   clearCart() {
-    this.items = [];
-    return this.items;
+    localStorage.removeItem('cart');
   }
 }

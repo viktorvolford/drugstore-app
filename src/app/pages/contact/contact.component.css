@@ -23,3 +23,8 @@ mat-card-header {
 .warning{
     color: red;
 }
+
+.heading{
+    font-size: large;
+    font-weight: 500;
+}

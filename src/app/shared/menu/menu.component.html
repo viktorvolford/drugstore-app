@@ -38,7 +38,7 @@
         <mat-icon>app_registration</mat-icon>
         <span>Regisztráció</span>
     </a>
-    <a mat-list-item routerLink="/main" (click)="close()">
+    <a mat-list-item *ngIf="loggedInUser" routerLink="/main" (click)="close()">
         <mat-icon>collections</mat-icon>
         <span>Katalógus</span>
     </a>

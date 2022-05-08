@@ -49,6 +49,10 @@ export class SignupComponent implements OnInit {
   }
 
   onSubmit(){
+    if(this.signUpForm.get('password')?.value !== this.signUpForm.get('rePassword')?.value){
+      window.alert('Nem egyeznek meg a megadott jelszavak!');
+      return;
+    }
     this.authService.signup(this.signUpForm.get('email')?.value, this.signUpForm.get('password')?.value)
     .then(cred => {
       const user : User = {
@@ -62,10 +66,10 @@ export class SignupComponent implements OnInit {
       };
       this.userService.create(user).then(_ => {
         console.log('User added succesfully!');
+        this.router.navigateByUrl('/main');
       }).catch(error => {
         console.log(error);
       });
-      this.router.navigateByUrl('/login');
     }).catch(err => {
       console.log(err);
     });

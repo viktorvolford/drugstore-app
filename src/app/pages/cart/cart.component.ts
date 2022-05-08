@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Product } from 'src/app/shared/models/Product';
 import { CartService } from '../../shared/services/cart.service';
 
 @Component({
@@ -8,19 +9,20 @@ import { CartService } from '../../shared/services/cart.service';
 })
 export class CartComponent implements OnInit {
 
-  items = this.cartService.getItems();
+  items : Array<Product> = [];
 
   constructor(
     private cartService: CartService,
   ) { }
 
   ngOnInit(): void {
+    this.items = this.cartService.getItems();
+    console.log(this.items);
   }
 
-  // onSubmit(): void {
-  //   // Process checkout data here
-  //   this.items = this.cartService.clearCart();
-  //   console.warn('Your order has been submitted', this.checkoutForm.value);
-  //   this.checkoutForm.reset();
-  // }
+  onSubmit(): void {
+    this.cartService.clearCart();
+    window.alert("Köszönjük a rendelésed!");
+    this.items = this.cartService.getItems();
+  }
 }

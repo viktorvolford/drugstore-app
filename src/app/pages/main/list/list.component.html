@@ -4,7 +4,7 @@
 
 <h2>Termékeink:</h2>
 <div fxLayout="row wrap" fxLayoutGap="16px grid">
-    <div *ngFor="let product of products; let i = index;" fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="50%">
+    <div *ngFor="let product of products; let i = index;" fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="50%" fxFlex.md="50%">
         <mat-card [ngStyle]="{'background-color' : i % 2 === 0 ? '#aee3fc' : '#579af7'}" class="mat-elevation-z4">
             <mat-card-header>
                 <mat-card-title>
